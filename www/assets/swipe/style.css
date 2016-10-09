@@ -1,0 +1,21 @@
+.slide-wid {
+  height: 300px;
+  padding: 0;
+  width: 100%;
+  background-color: #F3F3F3;
+}
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
