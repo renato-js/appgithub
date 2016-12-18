@@ -15,7 +15,7 @@
             <intent-filter>
                 <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
                 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-                <category android:name="com.onwebstudio.lojaloca" />
+                <category android:name="com.onwebstudio.minhaloja" />
             </intent-filter>
         </receiver>
     </application>
@@ -34,6 +34,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
-    <permission android:name="com.onwebstudio.lojaloca.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.onwebstudio.lojaloca.permission.RECEIVE_ADM_MESSAGE" />
+    <permission android:name="com.onwebstudio.minhaloja.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.onwebstudio.minhaloja.permission.RECEIVE_ADM_MESSAGE" />
 </manifest>

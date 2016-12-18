@@ -161,11 +161,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<permission android:name=\"com.onwebstudio.lojaloca.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.onwebstudio.minhaloja.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"com.onwebstudio.lojaloca.permission.RECEIVE_ADM_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.onwebstudio.minhaloja.permission.RECEIVE_ADM_MESSAGE\" />",
                             "count": 1
                         }
                     ],
@@ -179,7 +179,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.onwebstudio.lojaloca\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.onwebstudio.minhaloja\" /></intent-filter></receiver>",
                             "count": 1
                         }
                     ]
@@ -189,76 +189,76 @@
     },
     "installed_plugins": {
         "cordova-plugin-battery-status": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-globalization": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-media": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-vibration": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "in.edelworks.sharedpreferences": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         },
         "org.devgeeks.Canvas2ImagePlugin": {
-            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+            "PACKAGE_NAME": "com.onwebstudio.minhaloja"
         }
     },
     "dependent_plugins": {},
