@@ -7,46 +7,79 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "in.edelworks.sharedpreferences": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "com.okmemo.cordova.imgdownloader": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "org.devgeeks.Canvas2ImagePlugin": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "in.edelworks.sharedpreferences": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "org.devgeeks.Canvas2ImagePlugin": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         }
     }
 }

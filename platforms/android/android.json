@@ -9,7 +9,27 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
                             "count": 1
                         },
                         {
@@ -25,11 +45,39 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Globalization\"><param name=\"android-package\" value=\"org.apache.cordova.globalization.Globalization\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Media\"><param name=\"android-package\" value=\"org.apache.cordova.media.AudioHandler\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Capture\"><param name=\"android-package\" value=\"org.apache.cordova.mediacapture.Capture\" /></feature>",
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
                             "count": 1
                         },
                         {
@@ -41,15 +89,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"Canvas2ImagePlugin\"><param name=\"android-package\" value=\"org.devgeeks.Canvas2ImagePlugin.Canvas2ImagePlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -60,10 +104,38 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 5
+                            "count": 6
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
                             "count": 1
                         },
                         {
@@ -73,6 +145,42 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.amazon.device.messaging.permission.RECEIVE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<permission android:name=\"com.onwebstudio.lojaloca.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.onwebstudio.lojaloca.permission.RECEIVE_ADM_MESSAGE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<amazon:enable-feature android:name=\"com.amazon.device.messaging\" android:required=\"false\" xmlns:amazon=\"http://schemas.amazon.com/apk/res/android\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:exported=\"false\" android:name=\"com.onesignal.ADMMessageHandler\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.onwebstudio.lojaloca\" /></intent-filter></receiver>",
+                            "count": 1
                         }
                     ]
                 }
@@ -80,48 +188,88 @@
         }
     },
     "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "in.edelworks.sharedpreferences": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "com.okmemo.cordova.imgdownloader": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
-        },
-        "org.devgeeks.Canvas2ImagePlugin": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.onwebstudio.localoja"
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "in.edelworks.sharedpreferences": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
+        },
+        "org.devgeeks.Canvas2ImagePlugin": {
+            "PACKAGE_NAME": "com.onwebstudio.lojaloca"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/cordova-plugin-battery-status/www/battery.js",
+            "id": "cordova-plugin-battery-status.battery",
+            "clobbers": [
+                "navigator.battery"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
             "id": "cordova-plugin-camera.Camera",
@@ -148,6 +296,111 @@
             "id": "cordova-plugin-camera.CameraPopoverHandle",
             "clobbers": [
                 "CameraPopoverHandle"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/contacts.js",
+            "id": "cordova-plugin-contacts.contacts",
+            "clobbers": [
+                "navigator.contacts"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/Contact.js",
+            "id": "cordova-plugin-contacts.Contact",
+            "clobbers": [
+                "Contact"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactAddress.js",
+            "id": "cordova-plugin-contacts.ContactAddress",
+            "clobbers": [
+                "ContactAddress"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactError.js",
+            "id": "cordova-plugin-contacts.ContactError",
+            "clobbers": [
+                "ContactError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactField.js",
+            "id": "cordova-plugin-contacts.ContactField",
+            "clobbers": [
+                "ContactField"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactFindOptions.js",
+            "id": "cordova-plugin-contacts.ContactFindOptions",
+            "clobbers": [
+                "ContactFindOptions"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactName.js",
+            "id": "cordova-plugin-contacts.ContactName",
+            "clobbers": [
+                "ContactName"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactOrganization.js",
+            "id": "cordova-plugin-contacts.ContactOrganization",
+            "clobbers": [
+                "ContactOrganization"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contacts/www/ContactFieldType.js",
+            "id": "cordova-plugin-contacts.ContactFieldType",
+            "merges": [
+                ""
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-motion/www/Acceleration.js",
+            "id": "cordova-plugin-device-motion.Acceleration",
+            "clobbers": [
+                "Acceleration"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-motion/www/accelerometer.js",
+            "id": "cordova-plugin-device-motion.accelerometer",
+            "clobbers": [
+                "navigator.accelerometer"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
+            "id": "cordova-plugin-device-orientation.CompassError",
+            "clobbers": [
+                "CompassError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
+            "id": "cordova-plugin-device-orientation.CompassHeading",
+            "clobbers": [
+                "CompassHeading"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
+            "id": "cordova-plugin-device-orientation.compass",
+            "clobbers": [
+                "navigator.compass"
             ]
         },
         {
@@ -330,6 +583,54 @@
             ]
         },
         {
+            "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+            "id": "cordova-plugin-geolocation.geolocation",
+            "clobbers": [
+                "navigator.geolocation"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+            "id": "cordova-plugin-geolocation.PositionError",
+            "runs": true
+        },
+        {
+            "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+            "id": "cordova-plugin-globalization.GlobalizationError",
+            "clobbers": [
+                "window.GlobalizationError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+            "id": "cordova-plugin-globalization.globalization",
+            "clobbers": [
+                "navigator.globalization"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-media/www/MediaError.js",
+            "id": "cordova-plugin-media.MediaError",
+            "clobbers": [
+                "window.MediaError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-media/www/Media.js",
+            "id": "cordova-plugin-media.Media",
+            "clobbers": [
+                "window.Media"
+            ]
+        },
+        {
             "file": "plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js",
             "id": "cordova-plugin-media-capture.CaptureAudioOptions",
             "clobbers": [
@@ -389,17 +690,18 @@
             "runs": true
         },
         {
-            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-            "id": "cordova-plugin-statusbar.statusbar",
+            "file": "plugins/cordova-plugin-network-information/www/network.js",
+            "id": "cordova-plugin-network-information.network",
             "clobbers": [
-                "window.StatusBar"
+                "navigator.connection",
+                "navigator.network.connection"
             ]
         },
         {
-            "file": "plugins/in.edelworks.sharedpreferences/www/sharedpreferences.js",
-            "id": "in.edelworks.sharedpreferences.SharedPreferences",
+            "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+            "id": "cordova-plugin-network-information.Connection",
             "clobbers": [
-                "sharedpreferences"
+                "Connection"
             ]
         },
         {
@@ -410,10 +712,32 @@
             ]
         },
         {
-            "file": "plugins/com.okmemo.cordova.imgdownloader/www/imgdownloader.js",
-            "id": "com.okmemo.cordova.imgdownloader.imgDownloader",
+            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+            "id": "cordova-plugin-statusbar.statusbar",
             "clobbers": [
-                "cordova.plugins.imgDownloader"
+                "window.StatusBar"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+            "id": "cordova-plugin-vibration.notification",
+            "merges": [
+                "navigator.notification",
+                "navigator"
+            ]
+        },
+        {
+            "file": "plugins/in.edelworks.sharedpreferences/www/sharedpreferences.js",
+            "id": "in.edelworks.sharedpreferences.SharedPreferences",
+            "clobbers": [
+                "sharedpreferences"
+            ]
+        },
+        {
+            "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+            "id": "onesignal-cordova-plugin.OneSignal",
+            "clobbers": [
+                "OneSignal"
             ]
         },
         {
@@ -422,28 +746,32 @@
             "clobbers": [
                 "window.canvas2ImagePlugin"
             ]
-        },
-        {
-            "file": "plugins/cordova-plugin-device/www/device.js",
-            "id": "cordova-plugin-device.device",
-            "clobbers": [
-                "device"
-            ]
         }
     ],
     "plugin_metadata": {
+        "cordova-plugin-battery-status": "1.1.2",
         "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-camera": "2.2.1-dev",
+        "cordova-plugin-console": "1.0.4",
+        "cordova-plugin-contacts": "2.0.1",
+        "cordova-plugin-device": "1.1.2",
+        "cordova-plugin-device-motion": "1.2.2",
+        "cordova-plugin-device-orientation": "1.0.4",
         "cordova-plugin-dialogs": "1.2.1",
         "cordova-plugin-file": "4.2.0",
         "cordova-plugin-file-transfer": "1.5.1",
+        "cordova-plugin-geolocation": "2.1.0",
+        "cordova-plugin-globalization": "1.0.4",
+        "cordova-plugin-inappbrowser": "1.3.0",
+        "cordova-plugin-media": "2.2.0",
         "cordova-plugin-media-capture": "1.3.1-dev",
+        "cordova-plugin-network-information": "1.2.1",
+        "cordova-plugin-splashscreen": "3.2.2",
         "cordova-plugin-statusbar": "2.1.3",
+        "cordova-plugin-vibration": "2.1.2",
         "cordova-plugin-whitelist": "1.2.2",
         "in.edelworks.sharedpreferences": "0.1.0",
-        "cordova-plugin-splashscreen": "3.2.2",
-        "com.okmemo.cordova.imgdownloader": "0.1.0",
-        "org.devgeeks.Canvas2ImagePlugin": "0.6.0",
-        "cordova-plugin-device": "1.1.2"
+        "onesignal-cordova-plugin": "2.0.10",
+        "org.devgeeks.Canvas2ImagePlugin": "0.6.0"
     }
 }
