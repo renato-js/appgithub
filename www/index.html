@@ -125,8 +125,20 @@
     <!-- PAGINA DE LOGIN -->
     <section data-role="page" id="pagelogin">
         <article data-role="content">
+        
+        <div class="wrap box-login" id="welcome1">
+            <div class="box-init-descricao">        
+            <img src="img/theme/logo.png" alt="" class="logo">     
+                <h1>Bem vindo(a)!</h1>
+                <p>Aplicativo exclusivo para clientes Onweb Studio que possuem uma Loja Virtual.</p>
+                <br>
+                <p>Gerencie sua loja e acompanhe suas vendas aqui, vamos começar!</p>
+                <a href="#" class="bt-init" onclick="return initLogin()">Sou cliente Onweb</a>
+                <a href="#" class="bt-registra" onclick="return initError()">Ainda não sou cliente</a>
+            </div>
+        </div>
 
-        <div class="wrap box-login" >
+        <div class="wrap box-login invisivel" id="welcome2">
 
             <img src="img/theme/logo.png" alt="" class="logo"> <br>
 
@@ -142,6 +154,23 @@
                 </div>
 
             </form>
+                            <br>
+                <a href="#" class="bt-registra" onclick="return initStart()">Voltar</a>
+
+        </div>
+        <div class="wrap box-login invisivel" id="welcome3">
+            <div class="box-init-descricao">        
+            <img src="img/theme/logo.png" alt="" class="logo">     
+            <br>
+                <h1>Ops!</h1>
+                <p>Este aplicativo é exclusivo para clientes Onweb Studio.</p>
+                <p>Caso ainda não seja entre em contato conosco e abra já sua Loja Virtual para poder utilizar este aplicativo.</p>
+                <p>www.onwebstudio.com.br</p>
+                <p>contato@onwebstudio.com.br</p>
+                <br>
+                <a href="#" class="bt-registra" onclick="return initStart()">Voltar</a>
+
+            </div>
         </div>
 
         </article><!-- /content -->
@@ -225,11 +254,11 @@
                 <!-- <li><a href="#" data-rel="close" onclick="reloadpage()"><i class="material-icons">refresh</i> Recarregar</a></li> -->
                 <!-- <li><a href="#pagseguro" data-rel="close"><i class="material-icons">&#xE8B8;</i> Configurar Pagseguro</a></li> -->
                 
-                <li><a href="#pagenotification"><i class="material-icons">&#xE7F4;</i> Notificações</a></li>
+                <!-- <li><a href="#pagenotification"><i class="material-icons">&#xE7F4;</i> Notificações</a></li> -->
                 <li><a href="#infoapp"><i class="material-icons">&#xE0D4;</i> Sobre este app</a></li>
                 <hr>
                 <li class="it-texto"><i class="material-icons">&#xE01D;</i> Produtos <div class="tag-azul ng-totalprodutos"> 10 / 2000</div></li>
-                <li class="it-texto"><i class="material-icons">&#xE62A;</i> Loja v4.0 / App v1.1.1</li>
+                <li class="it-texto"><i class="material-icons">&#xE62A;</i> Loja v5.5 / App v2.0</li>
 
             </ul>
         </div>
@@ -260,7 +289,7 @@
 
 
         <article data-role="content">
-
+        <div class="header-space"></div>
         <!-- BANNER PRINCIPAL -->
         <div class="banner-central">
             <div id='mySwipe' class='swipe'>
@@ -280,24 +309,14 @@
 
             <div id="lista-botoes-index">
                 <ul class="ls-opcoes">
-                    <li><a href="#cadastrarproduto"><i class="material-icons">&#xE5CA;</i><span> ADD PRODUTO</span></a></li>
+                    <!-- <li><a href="#cadastrarproduto"><i class="material-icons">&#xE5CA;</i><span> ADD PRODUTO</span></a></li> -->
                     <!-- <li><a href="#criarpost"><i class="material-icons">&#xE8B0;</i><span> DESIGN MAKER</span></a></li> -->
-                    <li><a href="#cupons"><i class="material-icons">&#xE8B0;</i><span> ADD CUPOM</span></a></li>
-                    <li><a href="#vercatalogo" onclick="updateCat (0, 'Mais recentes')"><i class="material-icons">&#xE42B;</i><span> MEU CATÁLOGO</span></a></li>
-                    <li><a href="#meusclientes"><i class="material-icons">&#xE7F2;</i><span> MEUS CLIENTES</span></a></li>
+                    <!-- <li><a href="#cupons"><i class="material-icons">&#xE8B0;</i><span> ADD CUPOM</span></a></li> -->
+                    <li><a href="#vercatalogo" onclick="updateCat (0, 'Mais recentes')"><i class="material-icons">&#xE42B;</i><span> MEUS PRODUTOS</span></a></li>
+                    <li><a href="#pagenotification"><i class="material-icons">&#xE227;</i><span> MINHAS VENDAS</span></a></li>
                 </ul>
             </div>
 
-            <div class="box-material wrap ">    
-                <h2 class="">Em destaque</h2>
-                <a href="#produtodestaque" class="bt-mais">EDITAR</a>
-            </div>
-
-            <div class="pr-destaque">
-                <ul class="slide-grid slide-search ng-prodestaque">
-
-                </ul>
-            </div>
 
         <!-- material texturizado -->
         <div class="box-material-textura">        
@@ -362,9 +381,9 @@
 
         <article data-role="content">
  
-        <div class="box-material  box-margin">
+<!--         <div class="box-material  box-margin">
             <h2 class="txt-azul wrap">Catálogo</h2>
-       </div>
+       </div> -->
 
 
             <div class="pr-categorias">
@@ -373,11 +392,11 @@
                 </ul>
             </div>  
 
-            
+<!--             
             <div class="box-material wrap ">    
                 <h2 class="ng-categorianome"></h2>
             </div>
-
+ -->
             <div class="pr-destaque ">
                 <ul class="slide-grid slide-search ng-catalogoatual">
                     <!-- NG CATEGORIA ATUAL -->
@@ -487,26 +506,71 @@
  
         <div class="box-material  box-margin wrap">
             
-            <div class="header-box">
-                <h2>Criar cupom</h2>
-                <p>Escolha um produto e um modelo de post abaixo para criar uma imagem publicitária do seu produto para divulgação em redes sociais.</p>
-            </div>
+
+            
+            <form action="#"  class="fr-cadastroproduto">
+
+                <label for="cupom_typo">Tipo de cupom:</label>  
+                <select name="cupom_typo" id="cupom_typo"  data-role="none">
                 
-            <form action="#" name="fr-cadcupom" id="fr-cadcupom" class="fr-cadastroproduto">
-
-                <br>
-                <label for="">Frase do cupom:</label>
-                <input type="text" id="_cupomfrase" maxlength="100" data-role="none" class="prefocus txt-maiusculo" name="_cupomfrase" placeholder="Nome do produto" class=""/>
-                <label for="">Valor do cupom (%):</label>
-                <input type="tel" id="_cupomvalor" maxlength="100" data-role="none" class="prefocus" name="_cupomvalor" placeholder="10" class=""/>
-                <label for="">Data do cupom:</label>
-                <input type="date" id="_cupomdata" name="_cupomdata" value="">
-
-                <div class="ui-material-button">
-                    <a href="#" class="bt-azul-branco" onclick="cadastrarCupom('fr-cadcupom')">CADASTRAR CUPOM</a>
-                </div>
-
+                    <option value="1">Cupom com validade</option>
+                    <option value="2">Cupom permanente</option>
+                    <option value="3">Cupom dia único</option>
+                </select>
             </form>
+
+                <div id="form-cupom1" class="box-cupom-criar">
+                    <div class="header-box">
+                        <h2>Cupom com validade</h2>
+                        <p>Com este cupom seu cliente fará compra com desconto até o dia de validade definido</p>
+                    </div>
+
+                    <form action="#" name="fr-cadcupom" id="fr-cadcupom" class="fr-cadastroproduto">
+                        <label for="">Frase do cupom:</label>
+                        <input type="text" id="_cupomfrase1" maxlength="100" data-role="none" class="prefocus txt-maiusculo" name="_cupomfrase1" placeholder="Nome do produto" class=""/>
+                        <label for="">Valor do desconto (%):</label>
+                        <input type="tel" id="_cupomvalor1" maxlength="100" data-role="none" class="prefocus" name="_cupomvalor1" placeholder="10" class=""/>
+                        <label for="">Dia final de validade:</label>
+                        <input type="date" id="_cupomdata1" name="_cupomdata1" value="">
+                        <div class="ui-material-button">
+                            <a href="#" class="bt-azul-branco" onclick="cadastrarValidadeCupom('fr-cadcupom1')">CADASTRAR CUPOM</a>
+                        </div>
+                    </form>
+
+                </div>
+                <div id="form-cupom2" class="box-cupom-criar invisivel" class="invisivel"> 
+                    <div class="header-box">
+                        <h2>Cupom permanente</h2>
+                        <p>O cliente que usar o código deste cupom terá sempre descontos. Não há data de validade para uso.</p>
+                    </div>                
+                    <form action="#" name="fr-cadcupom" id="fr-cadcupom" class="fr-cadastroproduto">
+                        <label for="">Frase do cupom:</label>
+                        <input type="text" id="_cupomfrase2" maxlength="100" data-role="none" class="prefocus txt-maiusculo" name="_cupomfrase2" placeholder="Nome do produto" class=""/>
+                        <label for="">Valor do desconto (%):</label>
+                        <input type="tel" id="_cupomvalor2" maxlength="100" data-role="none" class="prefocus" name="_cupomvalor2" placeholder="10" class=""/>
+                        <div class="ui-material-button">
+                            <a href="#" class="bt-azul-branco" onclick="cadastrarPermanenteCupom('fr-cadcupom2')">CADASTRAR CUPOM</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="form-cupom3" class="box-cupom-criar invisivel" class="invisivel">                
+                    <div class="header-box">
+                        <h2>Cupom dia único</h2>
+                        <p>Para este cupom seu cliente só terá um dia para utilizar. Ideal para datas comemorativas.</p>
+                    </div>                
+                    <form action="#" name="fr-cadcupom" id="fr-cadcupom" class="fr-cadastroproduto">
+                        <label for="">Frase do cupom:</label>
+                        <input type="text" id="_cupomfrase3" maxlength="100" data-role="none" class="prefocus txt-maiusculo" name="_cupomfrase3" placeholder="Nome do produto" class=""/>
+                        <label for="">Valor do desconto (%):</label>
+                        <input type="tel" id="_cupomvalor3" maxlength="100" data-role="none" class="prefocus" name="_cupomvalor3" placeholder="10" class=""/>
+                        <label for="">Dia de validade:</label>
+                        <input type="date" id="_cupomdata3" name="_cupomdata3" value="">
+                        <div class="ui-material-button">
+                            <a href="#" class="bt-azul-branco" onclick="cadastrarUnicoCupom('fr-cadcupom3')">CADASTRAR CUPOM</a>
+                        </div>
+                    </form>
+                </div>                                
+
         </div>
 
 
@@ -570,9 +634,7 @@
        
              <form action="#" name="fr-produtodestaque" id="fr-produtodestaque" class="fr-cadastroproduto ">
                 <label for="_destaque1">Produto destaque 1:</label> 
-                <select name="_destaque1" id="_destaque1" data-role='none' class="ng-pdestaque">
-                    
-                </select>
+                <select name="_destaque1" id="_destaque1" data-role='none' class="ng-pdestaque"></select>
 
                 <label for="_destaque2">Produto destaque 2:</label> 
                 <select name="_destaque2" id="_destaque2" data-role='none' class="ng-pdestaque">
@@ -717,8 +779,8 @@
                         <p>Facebook: facebook.com/onwebstudiobh</p>
                         <p>E-mail: contato@onwebstudio.com.br</p>
                     <hr>
-                    <p>Versão atual: v1.1.1 (2016)</p>
-                    <p>Versão loja virtual: v4.0 (2016)</p>
+                    <p>Versão atual: v2.0 (2017)</p>
+                    <p>Versão loja virtual: v5.5 (2017)</p>
                 </div>
 
 
@@ -862,8 +924,8 @@
  
         <div class="box-material wrap">
             <div class="header-box">
-                <h2>Modo de edição</h2>
-                <p>Edite o produto preenchendo os campos abaixo. É necessário preencher todos os campos marcados com asterísco(*) para que seja cadastrado com sucesso.</p>
+                <h2>Edição rápida</h2>
+                <p>Edite o produto preenchendo os campos abaixo e clicando em "Concluír edição". Para edição avançada acesse o seu painel administrativo pelo computador.</p>
             </div>
             <form action="#" name="fr-editarproduto" id="fr-editarproduto" class="fr-cadastroproduto ng-editproduto">
                 
@@ -877,13 +939,13 @@
                 <label for="">Peso da unidade (Kg):</label>
                 <input type="tel" id="fr-edit-ppeso" name="fr-ppeso"  data-role="none" placeholder="0" class="peso prefocus" value="">
 
-                <label for="fr-pdesc">Descrição do produto: </label>               
+<!--                 <label for="fr-pdesc">Descrição do produto: </label>               
                 <textarea  id="fr-edit-pdesc-t" data-role="none"  class="textarea_editavel" maxlength="2000" cols="30" rows="50" placeholder="Descrição do curso"></textarea>
                 <textarea name="fr-edit-pdesc" id="fr-edit-pdesc0" style="display: none;" data-role="none"> </textarea>
+ -->
 
 
-
-                <div class="fotos-grid">                
+<!--                 <div class="fotos-grid">                
                     <div class="i-foto" id="ft-cover">
                         <div class="ico-foto-placeholder foto-cover" id="ft1"  onclick="return getImage(1, 'fr-edit-prod-ft1');">
                             <img src="img/produto/no-image.jpg" alt="" id="fr-edit-prod-ft1" style="width:100%; height:100%;">
@@ -909,7 +971,7 @@
                         <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoEdicao(4, 'fr-edit-prod-ft4')">Deletar</a>
                     </div>                                
                 </div>
-
+ -->
 
 
                 <label for="fr-pcategoria">Categoria do produto:</label>
@@ -1112,7 +1174,6 @@
         </header><!-- /header -->
 
         <article data-role="content">
- 
 
          <div class="banner-central">
             <div id='mySwipe2' class='swipe'>
@@ -1126,11 +1187,11 @@
 
 
 
-            <div class="box-material  box-margin">
+<!--             <div class="box-material  box-margin">
                 <h2 class="txt-azul wrap ng-catnome">Catálogo</h2>
            </div>
 
-
+ -->
             <div class="pr-categorias">
                 <ul class="ls-categorias-menus  ng-categorias">
 
@@ -1250,29 +1311,52 @@
     <section data-role="page" id="pagenotification" data-position="fixed">
 
         <header data-role='none' class='ui-header'>
-            <h1>Notificações</h1>
+            <h1>Minhas vendas</h1>
             <a href="#" class="bt-header bt-left ui-link ev-voltar"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>        
         </header><!-- /header -->
 
         <article data-role="content">
-            <div>
-                <!-- <h2 class="txt-azul wrap">Minhas notificações</h2> -->
-                
-            </div>
-
 
         <div class="box-material  box-margin wrap">
+
             <div class="header-box">
                 <h2 class="ng-estabelecimento"></h2>
             </div>
 
-            <div class="pr-descricao ">
-                <ul class="ls-notificacoes" id="ls-notificacoes"></ul>
+
+            <div data-role="tabs" id="tabs">
+             <div data-role="navbar">
+            <ul>
+              <li><a href="#not1" data-ajax="false" id="not-tab1" class="ui-btn-active">Em Aberto</a></li>
+              <li><a href="#not2" data-ajax="false">Finalizados</a></li>
+              <li><a href="#not3" data-ajax="false">Cancelados</a></li>
+            </ul>
+             </div>
+
+                 <!-- NOTIFICACAO 1 -->
+                 <div id="not1" class="">
+                    <div class="content-registros">
+                        <ul class="ng-pendentes" id="ls-notificacoes"></ul>
+                    </div> 
+                 </div>
+                 
+                 <!-- NOTIFICACAO 2 -->
+                 <div id="not2">
+                    <div class="content-registros">
+                        <ul class="ng-concluidos" id="ls-notificacoes"></ul>
+                    </div>
+                 </div>
+
+                 <!-- NOTIFICACAO 3 -->
+                 <div id="not3">
+                    <div class="content-registros">
+                        <ul class="ng-cancelados" id="ls-notificacoes"></ul>
+                    </div>                   
+                 </div>          
+
             </div>
 
         </div>
-
-
 
         </article><!-- /content -->
     </section>

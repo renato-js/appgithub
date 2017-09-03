@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>APPz</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/jqm/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="src/css/style.min.css">
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="assets/jq/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/jqm/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!-- sweet alert -->
+    <script src="assets/sweetalert/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="assets/sweetalert/sweetalert.css">
+
+    <!-- criar post -->
+    <link rel="stylesheet" href="assets/designmk/css/style.css">
+    <script src="assets/designmk/js/jquery-ui.js.js"></script>
+    <script type="text/javascript" src="assets/designmk/js/html2canvas.min.js"></script>
+
+    <!-- zoom smoth -->
+    <script type="text/javascript" src="assets/zoomsmoth/js/easing.js"></script> 
+    <script type="text/javascript" src="assets/zoomsmoth/js/smoothzoom.min.js"></script> 
+    <link rel="stylesheet" href="assets/zoomsmoth/css/smoothzoom.css">
+
+    <!-- mask -->
+    <script type="text/javascript" src="assets/mask/jquery.mask.min.js"></script>
+    <!-- PLUGIN EDITOR -->
+    <script type="text/javascript" src="assets/tinymce/tinymce.min.js"></script>
+
+    <!-- swipe -->
+    <link href='assets/swipe/style.css' rel='stylesheet'/>
+    
+    <!-- fontes Google -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+
+
+
+ 
+
+
+
+    <script>
+    tinymce.init({
+        menubar : false,
+        selector: ".textarea_editavel",
+        theme: "modern",
+        content_style: "body {font-size: 1.1em !important;}",
+        height: 200,
+        force_br_newlines : false,
+        force_p_newlines : true,
+        forced_root_block : '', // Needed for 3.x
+        plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+        paste_as_text: true,
+       toolbar: "modelo1 | bold italic",
+        setup: function(editor) {
+
+            // venda de roupas            
+            function insertModelo1() {
+              editor.insertContent('<p><strong>Detalhes:</strong></p><p>( Detalhes do produto )</p><br> <p><strong>Especifica&ccedil;&otilde;es:</strong></p><table style="width: 100%;" cellpadding="5"><tbody><tr><td>SKU</td><td>&nbsp;</td></tr><tr><td>Modelo</td><td>&nbsp;</td></tr><tr><td>Material</td><td>&nbsp;</td></tr><tr><td>Composi&ccedil;&atilde;o</td><td>&nbsp;</td></tr><tr><td>Cor</td><td>&nbsp;</td></tr><tr><td>Medidas</td><td>&nbsp;</td></tr><tr><td>Garantia do Fornecedor</td><td>&nbsp;</td></tr></tbody></table><p>&nbsp;</p>');
+            }
+
+            editor.addButton('modelo1', {
+              text: 'Modelo',
+              tooltip: "Inserir modelo de descrição de produto",
+              onclick: insertModelo1
+            });
+          }  
+
+     }); 
+    </script>
+    <style>
+        .mce-tinymce {
+            margin-bottom: 20px !important;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="box-modal" id="modal-principal">
+        <div id="modal-content"></div>
+        <div class="ui-controle-bottom">
+            <a href="#" class="bt-close" id="bt-close" onclick="fecharModal()">FECHAR</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    
+    <!-- PAGINA DE LOADING -->
+    <section data-role="page" id="page1">
+        <article data-role="content">
+            <img src="img/theme/logo.png" alt="" class="logo" id="logo-carregar"> <br>
+        </article><!-- /content -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- PAGINA DE LOGIN -->
+    <section data-role="page" id="pagelogin">
+        <article data-role="content">
+
+        <div class="wrap box-login" >
+
+            <img src="img/theme/logo.png" alt="" class="logo"> <br>
+
+            <form action="#" name="fr-login" id="fr-login">
+                <h2>Loja Virtual</h2>
+                <input type="text" id="fr-login-url" placeholder="minhaloja.com.br">
+                <input type="email" id="fr-login-email" placeholder="E-mail">
+                <input type="password" id="fr-login-pass" placeholder="Senha">
+
+                <div class="ui-material-button">
+                    <!-- <a href="#visitarcatalogo" class="bt-azul-branco" onclick="updateCat(0, 'Produtos recentes')" data-transition="pop">VER CATÁLOGO</a> -->
+                    <a href="#" class="bt-verde-branco" onclick="logarUser()">GERENCIAR LOJA</a>
+                </div>
+
+            </form>
+        </div>
+
+        </article><!-- /content -->
+        <div data-role="footer" class="footer"> 
+            <h4>Feito com muito <i class="material-icons">&#xE87D;</i> por Onweb Studio</h4> 
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- PAGINA CADASTRO -->
+    <section id="pagecadastro" data-role="page">
+        <!-- Menu principal -->
+        <header data-role='none' class='ui-header'>
+            <h1 class="espaco-left">Cadastro</h1>
+            <a href="#" class="bt-header bt-right" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">close</i></div></a>
+            <!-- <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a> -->
+        </header><!-- /header -->
+        <article data-role="content">
+
+
+            <div class="wrap">
+                
+                <h2 class="txt-branco ng-estabelecimento">NG</h2>
+                <p class="txt-branco">Cadastre-se! É fácil, prático e você ganha pontos!</p>
+                <form action="#" name="fr-cadastro" id="fr-cadastro">
+
+                    <input type="text" id="fr-cad-nome" placeholder="Seu nome"> 
+
+                    <input type="email" class="form-important" id="fr-cad-email" placeholder="Seu e-mail">
+
+                    <input type="password" class="form-important" id="fr-cad-pass1"  placeholder="Senha">
+
+                    <input type="password" class="form-important" id="fr-cad-pass2"  placeholder="Confirmar senha">
+
+                    <a href="#" class="bt-verde bt-full" onclick="enviarFormulario('fr-cadastro')">CRIAR CONTA</a>
+                </form>
+            </div>
+
+            <!-- <footer id="footer" class="ng-estabelecimento"></footer> -->
+
+        </article><!-- /content -->    
+    </section><!-- /page -->    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- PAGINA INDEX -->
+    <section data-role="page" id="pageindex" data-position="fixed">
+        
+        <!-- MENU PRINCIPAL -->
+        <div data-role="panel" data-position="left" data-display="overlay" class="ui-menu" id="mypanel1">
+            <ul data-role="none">
+                <li class="cover-menu"><img src="img/theme/logo.png" alt="">
+                <div class="cover-user">
+                    <p class="ng-usernome">ng</p>
+                    <p class="ng-useremail"><i>ng</i></p>
+                </div>
+                </li>
+                <li><span><i class="material-icons">home</i> <div class="ng-estabelecimento"></div></span></li>
+                <li><a href="#infoloja"><i class="material-icons">&#xE88F;</i> Informações da loja</a></li>
+                <!-- <li><a href="#bannersprincipais" data-rel="close""><i class="material-icons">&#xE8EB;</i> Banners principais</a></li> -->
+                <!-- <li><a href="#facebookpage" data-rel="close"><i class="material-icons">&#xE87C;</i> Facebook Page</a></li> -->
+                <!-- <hr> -->
+                <!-- <li><a href="#" data-rel="close" onclick="reloadpage()"><i class="material-icons">refresh</i> Recarregar</a></li> -->
+                <!-- <li><a href="#pagseguro" data-rel="close"><i class="material-icons">&#xE8B8;</i> Configurar Pagseguro</a></li> -->
+                
+                <li><a href="#pagenotification"><i class="material-icons">&#xE7F4;</i> Notificações</a></li>
+                <li><a href="#infoapp"><i class="material-icons">&#xE0D4;</i> Sobre este app</a></li>
+                <hr>
+                <li class="it-texto"><i class="material-icons">&#xE01D;</i> Produtos <div class="tag-azul ng-totalprodutos"> 10 / 2000</div></li>
+                <li class="it-texto"><i class="material-icons">&#xE62A;</i> Loja v4.0 / App v1.1.1</li>
+
+            </ul>
+        </div>
+
+
+        
+        <header data-role='none' class='ui-header-branco' id="ui-header-index">
+            <div class="header-searchbar">            
+                <!-- <h1 class="ng-estabelecimento">NG</h1> -->
+                <form action="#" id="fr-busca" onsubmit="return pesquisarProduto('fr-busca')">
+                    <input type="text" name="_buscaproduto" class="prefocus" data-role="none" id="_buscaproduto" placeholder="">
+                </form>
+                <a href="#" class="bt-header bt-right" onclick="return abrirTooltip()"><div class="ico-vazio"><i class="material-icons">&#xE5D4;</i></div></a>
+                <a href="#mypanel1" class="bt-header bt-left"><div class="ico-vazio"><i class="material-icons">menu</i></div></a>
+            </div>
+            <!-- menu tooltip -->
+            <div id="menu-tooltip" class="ui-menu-tooltip">
+            <ul class="ls-menu-tooltip">
+                <li><a href="#" onclick="reloadpage()">Atualizar</a></li>
+                <li><a onclick="openInBrowser()" id='bt-openbrowser'>Ver site</a></li>
+                <li><a href="#" class="ev-deslogar bt-deslogar">Deslogar</a></li>
+            </ul>
+            </div>
+        </header><!-- /header -->
+
+
+
+
+
+        <article data-role="content">
+
+        <!-- BANNER PRINCIPAL -->
+        <div class="banner-central">
+            <div id='mySwipe' class='swipe'>
+              <div class='swipe-wrap'>
+                <div class="slide-wid"><img id="ban1" src="img/produto/banner-placeholder.jpg"  width="600"  height="249"></div>
+                <div class="slide-wid"><img id="ban2" src="img/produto/banner-placeholder.jpg"  width="600"  height="249"></div>
+                <div class="slide-wid"><img id="ban3" src="img/produto/banner-placeholder.jpg"  width="600"  height="249"></div>
+              </div>
+            </div>
+        </div>
+
+        <!-- ============================================= DISPLAY TESTE -->
+
+
+
+        <!-- ============================================= DISPLAY TESTE -->
+
+            <div id="lista-botoes-index">
+                <ul class="ls-opcoes">
+                    <li><a href="#cadastrarproduto"><i class="material-icons">&#xE5CA;</i><span> ADD PRODUTO</span></a></li>
+                    <!-- <li><a href="#criarpost"><i class="material-icons">&#xE8B0;</i><span> DESIGN MAKER</span></a></li> -->
+                    <li><a href="#cupons"><i class="material-icons">&#xE8B0;</i><span> ADD CUPOM</span></a></li>
+                    <li><a href="#vercatalogo" onclick="updateCat (0, 'Mais recentes')"><i class="material-icons">&#xE42B;</i><span> MEU CATÁLOGO</span></a></li>
+                    <li><a href="#meusclientes"><i class="material-icons">&#xE7F2;</i><span> MEUS CLIENTES</span></a></li>
+                </ul>
+            </div>
+
+            <div class="box-material wrap ">    
+                <h2 class="">Em destaque</h2>
+                <a href="#produtodestaque" class="bt-mais">EDITAR</a>
+            </div>
+
+            <div class="pr-destaque">
+                <ul class="slide-grid slide-search ng-prodestaque">
+
+                </ul>
+            </div>
+
+        <!-- material texturizado -->
+        <div class="box-material-textura">        
+            <!-- cupons recentes -->
+            <div class="box-material wrap box-material-textura" >    
+                <h2 class="">Meus cupons</h2>
+                <a href="#cupons" class="bt-mais">CRIAR CUPOM</a>
+            </div>
+
+            <div class="wrap cp-tabela" >        
+                <table class="tb-cupons ng-cupons">
+                    
+                </table>
+            </div>
+        </div>
+
+
+            <div class="box-material wrap">    
+                <h2 class="">Mais vistos</h2>
+                <a href="#maisvistos" class="bt-mais">VER MAIS</a>
+            </div>
+
+            <div class="pr-destaque  pr-destaque-scroll">
+                <ul class="slide-grid ng-maisvistos">
+                <!-- NG lojaLsMaisVistos -->             
+                </ul>
+            </div>
+    
+            <div class="box-material wrap ">    
+                <h2 class="">Produtos mais recentes</h2>
+                <a href="#vercatalogo" class="bt-mais" onclick="updateCat (0, 'Mais Recentes')">CATÁLOGO</a>
+            </div>
+
+            <div class="pr-destaque  pr-destaque-scroll">
+                <ul class="slide-grid   ng-maisrecentes">
+                <!-- NG lojaRecentes -->             
+                </ul>
+            </div>
+
+
+
+        </article><!-- /content -->
+
+        <div data-role="footer" class="footer"> 
+            <h4>Feito com muito <i class="material-icons">&#xE87D;</i> por Onweb Studio</h4> 
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- PAGINA 4: VER CATÁLOGO -->
+    <section id="vercatalogo" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left"  onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material  box-margin">
+            <h2 class="txt-azul wrap">Catálogo</h2>
+       </div>
+
+
+            <div class="pr-categorias">
+                <ul class="ls-categorias-menus  ng-categorias">
+
+                </ul>
+            </div>  
+
+            
+            <div class="box-material wrap ">    
+                <h2 class="ng-categorianome"></h2>
+            </div>
+
+            <div class="pr-destaque ">
+                <ul class="slide-grid slide-search ng-catalogoatual">
+                    <!-- NG CATEGORIA ATUAL -->
+                </ul>
+            </div>
+        </article><!-- /content -->
+    </section><!-- /page -->
+
+
+
+    <!-- PAGINA 5: CADASTRAR PRODUTO NOVO -->
+    <section id="cadastrarproduto" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material wrap">
+            <div class="header-box">
+                <h2>Cadastrar novo produto</h2>
+                <p>Cadastre um novo produto preenchendo os campos abaixo. É necessário preencher todos os campos marcados com asterísco(*) para que seja cadastrado com sucesso.</p>
+            </div>
+            <form action="#" name="fr-cadastroproduto" class="fr-cadastroproduto" id="fr-cadastroproduto" enctype="multipart/form-data"> 
+                <br>
+                <label for="">Nome do produto:</label>
+                <input type="text" id="fr-pnome" name="fr-pnome" data-role="none" placeholder="Nome do produto">
+                <label for="">Preço unidade (R$):</label>
+                <input type="tel" id="fr-ppreco" name="fr-ppreco" class="moeda prefocus" data-role="none" placeholder="0,00" value="0,00">
+                <label for="">Peso da unidade (Kg):</label>
+                <input type="tel" id="fr-ppeso" class="peso prefocus" name="fr-ppeso" data-role="none" placeholder="0" value="0">
+
+
+                <label for="fr-pdesc">Descrição do produto: </label>               
+                <textarea id="fr-cad-pdesc-t" data-role="none"  class="textarea_editavel" maxlength="2000" cols="30" rows="50" placeholder="Descrição do curso"></textarea>
+                <textarea name="fr-cad-pdesc" id="fr-cad-pdesc0" style="display: none;" data-role="none"> </textarea>
+                
+                
+                <div class="fotos-grid">                
+                    <label>Fotos do produto</label>
+                    <div class="i-foto" id="ft-cover">
+                        <div class="ico-foto-placeholder  foto-cover"  id="ft1" onclick="return getImage(1, 'fr-prod-ft1');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-prod-ft1" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoCadastrar(1, 'fr-prod-ft1')">Deletar</a>
+                    </div>
+                    <div class="i-foto" id="ft-cover">
+                        <div class="ico-foto-placeholder foto-cover"  id="ft2" onclick="return getImage(2, 'fr-prod-ft2');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-prod-ft2" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoCadastrar(2, 'fr-prod-ft2')">Deletar</a>
+                    </div>    
+                    <div class="i-foto" id="ft-cover">
+                        <div class="ico-foto-placeholder foto-cover" id="ft3" onclick="return getImage(3, 'fr-prod-ft3');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-prod-ft3" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoCadastrar(3, 'fr-prod-ft3')">Deletar</a>
+                    </div>
+                    <div class="i-foto" id="ft-cover">
+                        <div class="ico-foto-placeholder foto-cover" id="ft4" onclick="return getImage(4, 'fr-prod-ft4');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-prod-ft4" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoCadastrar(4, 'fr-prod-ft4')">Deletar</a>
+                    </div>                                
+                </div>
+
+
+                <label for="fr-pcategoria">Categoria do produto:</label>
+                <select name="fr-pcategoria" id="fr-pcategoria" class="ng-optcategorias" data-role='none'>
+                    
+                </select>
+
+                <label for="fr-pstatus">Status do produto:</label> 
+                <select name="fr-pstatus" id="fr-pstatus" data-role='none'>
+                    <option value="1">Em estoque</option>
+                    <option value="2">Fora de estoque</option>
+                    <option value="3">Desativado</option>
+                </select>
+
+                <div class="ui-material-button">
+                    <a href="#" class="bt-azul-branco" onclick="cadastrarProduto('fr-cadastroproduto')">CADASTRAR PRODUTO</a>
+                </div>
+
+            </form>
+        </div>
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+
+    <!-- PAGINA 6:  CUPONS -->
+    <section id="cupons" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material  box-margin wrap">
+            
+            <div class="header-box">
+                <h2>Criar cupom</h2>
+                <p>Escolha um produto e um modelo de post abaixo para criar uma imagem publicitária do seu produto para divulgação em redes sociais.</p>
+            </div>
+                
+            <form action="#" name="fr-cadcupom" id="fr-cadcupom" class="fr-cadastroproduto">
+
+                <br>
+                <label for="">Frase do cupom:</label>
+                <input type="text" id="_cupomfrase" maxlength="100" data-role="none" class="prefocus txt-maiusculo" name="_cupomfrase" placeholder="Nome do produto" class=""/>
+                <label for="">Valor do cupom (%):</label>
+                <input type="tel" id="_cupomvalor" maxlength="100" data-role="none" class="prefocus" name="_cupomvalor" placeholder="10" class=""/>
+                <label for="">Data do cupom:</label>
+                <input type="date" id="_cupomdata" name="_cupomdata" value="">
+
+                <div class="ui-material-button">
+                    <a href="#" class="bt-azul-branco" onclick="cadastrarCupom('fr-cadcupom')">CADASTRAR CUPOM</a>
+                </div>
+
+            </form>
+        </div>
+
+
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+    <!-- PAGINA 7: MEUS CLIENTES -->
+    <section id="meusclientes" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material cp-tabela wrap">
+
+            <div class="header-box">
+                <h2>Meus clientes</h2>
+                <p>Lista de clientes com whatsapp cadastrados na sua loja online.</p>
+            </div>
+
+
+            <table class="tb-cupons ng-clientes">
+                
+            </table>
+        </div>
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+    <!-- PAGINA 8: EDITAR PRODUTOS DESTAQUE -->
+    <section id="produtodestaque" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material wrap">
+
+            <div class="header-box">
+                <h2>Produtos mais vistos</h2>
+                <p>A lista abaixo é composta por todos os produtos que receberam pelo menos 1 click em sua loja.</p>
+            </div>
+
+       
+             <form action="#" name="fr-produtodestaque" id="fr-produtodestaque" class="fr-cadastroproduto ">
+                <label for="_destaque1">Produto destaque 1:</label> 
+                <select name="_destaque1" id="_destaque1" data-role='none' class="ng-pdestaque">
+                    
+                </select>
+
+                <label for="_destaque2">Produto destaque 2:</label> 
+                <select name="_destaque2" id="_destaque2" data-role='none' class="ng-pdestaque">
+                  
+                </select>
+
+
+                <label for="_destaque3">Produto destaque 3:</label> 
+                <select name="_destaque3" id="_destaque3" data-role='none' class="ng-pdestaque">
+
+                </select>
+
+                <div class="ui-material-button">
+                    <a href="#" class="bt-azul-branco"  onclick="updateDestaque()">ATUALIZAR</a>
+                </div>
+
+            </form>
+          
+        </div>
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+    <!-- PAGINA 9: PRODUTOS MAIS VISTOS -->
+    <section id="maisvistos" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material cp-tabela wrap">
+
+            <div class="header-box">
+                <h2>Produtos mais vistos</h2>
+                <p>A lista abaixo é composta por todos os produtos que receberam pelo menos 1 click em sua loja.</p>
+            </div>
+
+
+            <table class="tb-cupons ng-maisvistos-tabela">
+<!--                 <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Whatsapp</th>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Meu cliente</td>
+                    <td>(31) 8989-8787</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Meu cliente</td>
+                    <td>(31) 8989-8787</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Meu cliente</td>
+                    <td>(31) 8989-8787</td>
+                </tr>    -->                     
+            </table>
+        </div>
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+    <!-- PAGINA 10: INFO DA LOJA -->
+    <section id="infoloja" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+        <div class="box-material  box-margin wrap">
+            <div class="header-box">
+                <h2 class="ng-estabelecimento"></h2>
+                <p class="ng-lojatag"></p>
+            </div>
+
+            <div class="pr-descricao ">
+                
+                <p><strong>Quem somos</strong></p>
+                <div class="ng-sobre"></div>
+                <br>
+                <p><strong>Termos de uso</strong></p>
+                <div class="ng-termos"></div>
+
+            </div>
+
+        </div>
+
+        </article><!-- /content -->
+    </section><!-- /page -->
+
+
+    <!-- PAGINA 10: INFO DO APP -->
+    <section id="infoapp" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+        <div class="box-material  box-margin wrap">
+            <div class="header-box">
+                <h2 class="ng-estabelecimento"></h2>
+            </div>
+
+            <div class="pr-descricao ">
+                
+                <p><strong>Sobre o aplicativo</strong></p>
+                <div>
+                    <p>Este aplicativo foi desenvolvido por Onweb Studio. Aplicativo exclusivo para clientes que utilizam lojas virtuais Onweb Studio com versão 4.0 ou superior.</p>
+                    <p>O código fonte deste aplicativo é de propriedade exclusiva Onweb Studio, não pode ser utilizado para revenda ou utilização para meios comerciais, do código fonte, por empresas ou profissionais terceiros.</p>
+                </div>
+                <br>
+                <p><strong>Termos de uso</strong></p>
+                <div>
+                    <p>Utilize o aplicativo para se conectar a sua loja virtual Onweb Studio. Novas atualizações e melhorias serão anunciadas por nossos canais</p>
+                    <hr>
+                    <p><strong>Contato</strong></p>
+                        <p>Site: www.onwebstudio.com.br</p>
+                        <p>Blog: www.onwebstudio.com.br/blog</p>
+                        <p>Facebook: facebook.com/onwebstudiobh</p>
+                        <p>E-mail: contato@onwebstudio.com.br</p>
+                    <hr>
+                    <p>Versão atual: v1.1.1 (2016)</p>
+                    <p>Versão loja virtual: v4.0 (2016)</p>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        </article><!-- /content -->
+    </section><!-- /page -->
+
+
+
+
+    <!-- PAGINA 11: BANNERS PRINCIPAIS -->
+    <section id="bannersprincipais" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a>
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+        <div class="box-material  box-margin">
+            <h2 class="txt-azul wrap ng-catnome">Catálogo</h2>
+       </div>
+            <h1>Banners principais</h1>
+
+
+
+
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+    <!-- PAGINA 12: FACEBOOK PAGE -->
+    <section id="facebookpage" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a>
+            <a href="#" class="bt-header bt-left " onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+        <div class="box-material  box-margin">
+            <h2 class="txt-azul wrap ng-catnome">Catálogo</h2>
+       </div>
+            <h1>Meu facebook</h1>
+
+
+
+
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+
+    <!-- PAGINA 13: PAGSGEURO -->
+    <section id="pagseguro" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a>
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+        <div class="box-material  box-margin">
+            <h2 class="txt-azul wrap ng-catnome">Catálogo</h2>
+       </div>
+            <h1>Pagseguro</h1>
+
+
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+    <!-- PAGINA 14: VER BUSCA CATÁLOGO -->
+    <section id="searchresultado" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left"  onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+        <div class="box-material  box-margin">
+            <h2 class="txt-azul wrap ng-catnome">Resultado</h2>
+       </div>
+            
+            <div class="box-material wrap ">    
+                <h2 class="">Resultado da busca</h2>
+            </div>
+
+            <div class="pr-destaque">
+                <ul class="slide-grid slide-search ng-searchatual">
+                    <!-- NG CATEGORIA ATUAL -->
+                </ul>
+            </div>
+
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+
+
+    <!-- PAGINA 15: EDITAR PRODUTO CADASTRADO -->
+    <section id="editarproduto" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+        <div class="box-material wrap">
+            <div class="header-box">
+                <h2>Modo de edição</h2>
+                <p>Edite o produto preenchendo os campos abaixo. É necessário preencher todos os campos marcados com asterísco(*) para que seja cadastrado com sucesso.</p>
+            </div>
+            <form action="#" name="fr-editarproduto" id="fr-editarproduto" class="fr-cadastroproduto ng-editproduto">
+                
+                <label for="">Nome do produto:</label>
+                <input type="hidden" value="" name="iditem" id="fr-edit-id">
+                <input type="text" id="fr-edit-pnome" name="fr-pnome"  data-role="none" placeholder="Nome do produto" value="">
+                
+                <label for="">Preço unidade (R$):</label>
+                <input type="tel" id="fr-edit-ppreco" name="fr-ppreco"  data-role="none" placeholder="0,00" class="moeda prefocus" value="">
+                
+                <label for="">Peso da unidade (Kg):</label>
+                <input type="tel" id="fr-edit-ppeso" name="fr-ppeso"  data-role="none" placeholder="0" class="peso prefocus" value="">
+
+                <label for="fr-pdesc">Descrição do produto: </label>               
+                <textarea  id="fr-edit-pdesc-t" data-role="none"  class="textarea_editavel" maxlength="2000" cols="30" rows="50" placeholder="Descrição do curso"></textarea>
+                <textarea name="fr-edit-pdesc" id="fr-edit-pdesc0" style="display: none;" data-role="none"> </textarea>
+
+
+
+                <div class="fotos-grid">                
+                    <div class="i-foto" id="ft-cover">
+                        <div class="ico-foto-placeholder foto-cover" id="ft1"  onclick="return getImage(1, 'fr-edit-prod-ft1');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-edit-prod-ft1" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoEdicao(1, 'fr-edit-prod-ft1')">Deletar</a>
+                    </div>
+                    <div class="i-foto" id="ft-cover" >
+                        <div class="ico-foto-placeholder foto-cover" id="ft2" onclick="return getImage(2, 'fr-edit-prod-ft2');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-edit-prod-ft2" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoEdicao(2, 'fr-edit-prod-ft2')">Deletar</a>
+                    </div>    
+                    <div class="i-foto" id="ft-cover">
+                        <div class="ico-foto-placeholder foto-cover" id="ft3"  onclick="return getImage(3, 'fr-edit-prod-ft3');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-edit-prod-ft3" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoEdicao(3, 'fr-edit-prod-ft3')">Deletar</a>
+                    </div>
+                    <div class="i-foto" id="ft-cover" >
+                        <div class="ico-foto-placeholder foto-cover" id="ft4" onclick="return getImage(4, 'fr-edit-prod-ft4');">
+                            <img src="img/produto/no-image.jpg" alt="" id="fr-edit-prod-ft4" style="width:100%; height:100%;">
+                        </div>
+                        <a href="#" class="bt-verde bt-delete-fotocadastro" onclick="deleteFotoEdicao(4, 'fr-edit-prod-ft4')">Deletar</a>
+                    </div>                                
+                </div>
+
+
+
+                <label for="fr-pcategoria">Categoria do produto:</label>
+                <select name="fr-pcategoria" id="fr-edit-categoria" class="ng-optcategorias" data-role="none">
+                    
+                </select>
+
+                <label for="fr-pstatus">Status do produto:</label> 
+                <select name="fr-pstatus" id="fr-edit-pstatus" data-role="none">
+                    <option value="1">Em estoque</option>
+                    <option value="2">Fora de estoque</option>
+                    <option value="3">Desativado</option>
+                </select>
+
+                <div class="ui-material-button">
+                    <a href="#" class="bt-azul-branco" onclick="editarCadastroProduto('fr-editarproduto')">CONCLUIR EDIÇÃO</a>
+                </div>
+
+
+            </form>
+        </div>
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- PAGINA 16: CRIAR POST FACEBOOK -->
+    <section id="criarpost" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <a href="#" class="bt-header bt-left"  onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+     
+            <div class="box-material  box-margin wrap">
+                <div class="header-box">
+                    <h2>Design Maker</h2>
+                    <p>Escolha um produto e um modelo de post abaixo para criar uma imagem publicitária do seu produto para divulgação em redes sociais.</p>
+                </div>
+
+                
+        <section id="campo-personalizacao" class="wrap grid">
+            <!-- modelo a ser analisado -->
+            <section id="placeholder-model" class="c1-2">
+                
+                <!-- modelo jpg -->
+                <div id="placeholder-model1" class="bg-placeholder"></div>
+
+                <!-- modelo png -->
+                <div id="placeholder-model2" class="bg-placeholder"></div>
+
+                <!-- logo -->
+                <div id="placeholder-silk"> 
+                    <img src="img/theme/logo.png" id="img-silk" alt="">
+                </div>
+                
+                <div id="placeholder-canvas"></div>
+                
+                <div id="fbpost-ft-nome" class=""></div>
+                <div id="fbpost-ft-preco" class=""></div>
+                <div id="fbpost-ft-site"></div>
+            </section>
+
+
+            <section id="control-model" class="c1-2">
+            
+            <div class="ui-box">
+                <div class="grid">
+                    <div style="width: 50%; float: left;">Produto da loja</div>
+                    <div style="width: 50%; float: left;">
+                        <select name="fr-produto-versao" id="fr-produto-versao" class="bt-select ng-pdestaque"  data-role="none">
+
+            
+                        </select>                        
+                    </div>
+                </div>
+    
+                 <div class="ui-fotopreview">                
+                    <a href="#" class="bt-ui-foto" id="bt-cover" onclick="return bgImage(0, this)">Cover</a>
+                    <a href="#" class="bt-ui-foto" onclick="return bgImage(1, this)">Preview 1</a>
+                    <a href="#" class="bt-ui-foto" onclick="return bgImage(2, this)">Preview 2</a>
+                    <a href="#" class="bt-ui-foto" onclick="return bgImage(3, this)">Preview 3</a>
+                </div>
+            </div>
+                
+
+            <div class="ui-box">
+                <div class="grid">
+                    <div style="width: 50%; float: left;">Modelo do post</div>
+                    <div style="width: 50%; float: left;">
+                        <select name="fr-molde-versao" id="fr-molde-versao" class="bt-select" data-role="none">
+                            <option value=""> - Escolher modelo</option>
+                            <option value="1">Molde 1</option>
+                            <option value="2">Molde 2</option>
+                            <option value="3">Molde 3</option>
+                            <option value="4">Molde 4</option>
+                            <option value="5">Molde 5</option>
+                            <option value="6">Molde 6</option>
+                            <option value="7">Molde 7</option>
+                            <option value="8">Molde 8</option>
+                            <option value="9">Molde 9</option>
+                        </select>                        
+                    </div>
+                </div>
+            
+                <div class="ui-colorfont">                
+                    <a href="#" class="bt-ui-font" id="bt-txt"  onclick="return corTexto('', this)">Texto original</a>
+                    <a href="#" class="bt-ui-font" onclick="return corTexto('txt-preto', this)">Texto escuro</a>
+                    <a href="#" class="bt-ui-font" onclick="return corTexto('txt-branco', this)">Texto claro</a>
+                </div>                   
+            </div>
+
+
+            <div class="ui-box">
+                    <div class="grid">
+                        <div style="width: 50%; float: left;">Logo</div>
+                        <div style="width: 50%; float: left;" id="ui-logo">
+                            <div id="bt-branco"><input type="checkbox" name="" onchange="logoBranco(this)"> Modelo Claro</div>
+                        </div>
+                    </div>
+                    <input id="fr-logo-size" type="range" min="0" max="500" step="10"  value="100"  data-role="none" oninput="logoSize(this.value)" onchange="logoSize(this.value)" /> 
+                
+            </div>
+             
+                <button onclick="converteimg()" class="bt-verde"  data-role="none">Gerar imagem post</button>
+                <a href="#" download="post.jpg" id="btdownloadpost" style="display: none;"></a>
+
+            </section>
+
+        </section>
+
+
+
+            </div>
+            
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- PAGINA 4: VER CATÁLOGO -->
+    <section id="visitarcatalogo" data-role="page">
+
+        <header data-role='none' class='ui-header'>
+            <h1 class="ng-estabelecimento">NG</h1>
+            <!-- <a href="#pageprofile" class="bt-header bt-right"  data-transition="slide"><div class="ico-vazio"><i class="material-icons">person</i></div></a> -->
+            <a href="#" class="bt-header bt-left"  onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+ 
+
+         <div class="banner-central">
+            <div id='mySwipe2' class='swipe'>
+              <div class='swipe-wrap'>
+                <div class="slide-wid"><img id="ban1v" src="img/produto/banner-placeholder.jpg"  width="600"  height="249"></div>
+                <div class="slide-wid"><img id="ban2v" src="img/produto/banner-placeholder.jpg"  width="600"  height="249"></div>
+                <div class="slide-wid"><img id="ban3v" src="img/produto/banner-placeholder.jpg"  width="600"  height="249"></div>
+              </div>
+            </div>
+        </div>
+
+
+
+            <div class="box-material  box-margin">
+                <h2 class="txt-azul wrap ng-catnome">Catálogo</h2>
+           </div>
+
+
+            <div class="pr-categorias">
+                <ul class="ls-categorias-menus  ng-categorias">
+
+                </ul>
+            </div>  
+
+            
+            <div class="box-material wrap ">    
+                <h2 class="ng-categorianome"></h2>
+            </div>
+
+            <div class="pr-destaque ">
+                <ul class="slide-grid slide-search ng-catalogoatual">
+                    <!-- NG CATEGORIA ATUAL -->
+                </ul>
+            </div>
+        </article><!-- /content -->
+    </section><!-- /page -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- PAGE 3 -->
+    <section id="modalitem" data-role="page">
+        <header data-role='none' class='ui-header header-branco'>
+            <h1 class="ng-estabelecimento">NG</h1>
+
+            <a href="#" class="bt-header bt-left" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">close</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+
+        <div class="box-material wrap  box-margin ng-produtodescricao">
+
+        </div>
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+
+
+
+
+
+    <!-- MODAL EDITAR PERFIL -->
+    <section id="modaleditprofile" data-role="page">
+        <header data-role='none' class='ui-header'>
+            <h1 class="espaco-left">Editar perfil</h1>
+            <a href="#" class="bt-header bt-right" onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">close</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+        <div class="box-material  box-margin wrap">
+                <h2>Editando perfil</h2>
+                <p >Selecione os campos abaixo para poder editar seu perfil!</p>
+                <br>
+                <strong><p class="ng-useremail"></p></strong>
+                <br>
+                <form action="#" name="fr-editperfil" id="fr-editperfil">
+
+                    <input type="text" id="fr-edit-nome" placeholder="Seu nome"> 
+
+                    <input type="password" class="form-important" id="fr-edit-pass"  placeholder="Nova senha">
+                    
+                    <label for="">Confirmar senha</label>
+                    <input type="password" class="form-important" id="fr-edit-confirmpass"  placeholder="Confirmar senha">
+
+                    <a href="#" class="bt-verde bt-full" onclick="editarPerfilCheck('fr-editperfil')">ATUALIZAR PERFIL</a>
+                </form>
+        </div>
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+    <!-- NOTIFICACOES -->
+    <section data-role="page" id="pagenotification" data-position="fixed">
+
+        <header data-role='none' class='ui-header'>
+            <h1>Notificações</h1>
+            <a href="#" class="bt-header bt-left ui-link ev-voltar"><div class="ico-vazio"><i class="material-icons">&#xE5C4;</i></div></a>        
+        </header><!-- /header -->
+
+        <article data-role="content">
+            <div>
+                <!-- <h2 class="txt-azul wrap">Minhas notificações</h2> -->
+                
+            </div>
+
+
+        <div class="box-material  box-margin wrap">
+            <div class="header-box">
+                <h2 class="ng-estabelecimento"></h2>
+            </div>
+
+            <div class="pr-descricao ">
+                <ul class="ls-notificacoes" id="ls-notificacoes"></ul>
+            </div>
+
+        </div>
+
+
+
+        </article><!-- /content -->
+    </section>
+
+
+
+
+    <!-- MODAL DELETAR PERFIL -->
+    <section id="modaldeleteprofile" data-role="page">
+        <header data-role='none' class='ui-header'>
+            <h1 class="espaco-left">Deletar perfil</h1>
+            <a href="#" class="bt-header bt-right " onclick="voltarApp()"><div class="ico-vazio"><i class="material-icons">close</i></div></a>
+        </header><!-- /header -->
+
+        <article data-role="content">
+
+
+        <div class="box-material wrap">
+                <h2>Deseja excluir perfil?</h2>
+                <p>Deletando seu perfil, você perde todos os seus pontos e histórico, tornando seu e-mail inutilizável.</p>
+                    
+                <form action="#" name="fr-deletarperfil" id="fr-deletarperfil">
+                    <br>
+                    <label for="">Confirmar senha:</label>
+                    <input type="password" id="fr-del-pass"  placeholder="Sua senha">
+
+                    <a href="#" class="bt-vermelho bt-full" onclick="deletarUserCheck('fr-deletarperfil')">EXCLUIR PERFIL</a>
+                </form>
+        </div>
+
+        </article><!-- /content -->
+
+    </section><!-- /page -->
+
+
+
+
+    <!-- principal elemento -->
+    <script type="text/javascript" src="src/js/main.min.js"></script>
+    <script type="text/javascript" src="assets/swipe/swipe.js"></script>
+
+
+</body>
+</html>
