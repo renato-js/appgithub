@@ -99,8 +99,8 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="15" />
-    <preference name="android-versionCode" value="344" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-versionCode" value="346" />
     <gap:config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <array>
             <string>Photo Library Access Warning</string>

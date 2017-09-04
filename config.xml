@@ -10,7 +10,7 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
-    <preference name="android-versionCode" value="344" />
+    <preference name="android-versionCode" value="346" />
     <platform name="android">
         <preference name="SplashScreen" value="screen" />
         <allow-intent href="market:*" />
