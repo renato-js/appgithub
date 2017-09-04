@@ -99,7 +99,7 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="15" />
     <preference name="android-versionCode" value="344" />
     <gap:config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
         <array>
