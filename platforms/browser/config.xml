@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.onwebstudio.minhaloja" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="Camera">
+        <param name="browser-package" value="Camera" />
+    </feature>
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <name>Minha Loja</name>
+    <description>
+       Loja Virtual Online
+    </description>
+    <author email="contato@onwebstudio.com.br" href="http://onwebstudio.com.br">
+        Loja Virtual Online
+    </author>
+    <content src="index.html" />
+    <gap:plugin name="onesignal-cordova-plugin" source="npm" spec="^2.0.6" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <gap:config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios">
+        <array>
+            <string>Photo Library Access Warning</string>
+        </array>
+    </gap:config-file>
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-versionCode" value="345" />
+</widget>
