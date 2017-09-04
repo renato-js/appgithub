@@ -11,7 +11,6 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-versionCode" value="344" />
-    <gap:plugin name="onesignal-cordova-plugin" source="npm" spec="^2.0.6" />
     <platform name="android">
         <preference name="SplashScreen" value="screen" />
         <allow-intent href="market:*" />
